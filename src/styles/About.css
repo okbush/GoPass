@@ -1,0 +1,173 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.hero {
+  background-color: #6a1b9a;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+}
+
+.hero h1 span {
+  color: #ff4081;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.services {
+  background-color: #f4f4f4;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.services p {
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.services-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.service-item {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 200px;
+  max-width: 250px;
+  text-align: center;
+}
+
+.contact {
+  background-color: #ffccbc;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #4a148c;
+}
+
+.contact-info {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.social-media {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-media a {
+  color: #6a1b9a;
+  text-decoration: none;
+}
+
+.social-media a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-links,
+.footer-policy {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-links a,
+.footer-policy a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-policy a:hover {
+  text-decoration: underline;
+}
+
+.footer-logo img {
+  height: 40px;
+}
