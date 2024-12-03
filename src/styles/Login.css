@@ -1,0 +1,34 @@
+.login {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .login h2 {
+    margin-bottom: 20px;
+  }
+  
+  .login form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login input[type="text"], .login input[type="password"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .login button {
+    padding: 10px 20px;
+    background-color: #4b0082;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .login button:hover {
+    background-color: #370063;
+  }
+  

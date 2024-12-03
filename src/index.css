@@ -1,0 +1,35 @@
+/* src/index.css */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #6a0dad;
+  color: #fff;
+}
+
+.footer {
+  background-color: #2e294e;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.event-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Add further CSS as needed */
