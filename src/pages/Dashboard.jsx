@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import events from '../utils/api'; // Adjust the path as needed
+import events from '../utils/api';
 import EventCard from '../components/EventCard';
 import '../styles/Dashboard.css';
 
@@ -7,7 +7,6 @@ const Dashboard = () => {
     const [eventList, setEventList] = useState([]);
 
     useEffect(() => {
-        // Simulate API call
         setEventList(events);
     }, []);
 
@@ -19,7 +18,7 @@ const Dashboard = () => {
                 <button>Search</button>
             </div>
             <div className="event-list">
-                {eventList.map(event => (
+                {eventList.map((event) => (
                     <EventCard key={event.id} event={event} />
                 ))}
             </div>

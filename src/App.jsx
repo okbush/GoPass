@@ -6,7 +6,6 @@ import About from './pages/About';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import EventDetails from './components/EventDetails';
-import './styles/App.css';
 
 function App() {
     return (

@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import '../styles/EventDetails.css';
+import events from '../utils/api';
 
 function EventDetails() {
     const { id } = useParams();
