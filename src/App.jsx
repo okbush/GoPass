@@ -6,17 +6,18 @@ import About from './pages/About';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import EventDetails from './components/EventDetails';
+import events from './utils/api'; // Import event data
 
 function App() {
     return (
         <Router>
             <NavBar />
             <Routes>
-                <Route path="/" element={<Dashboard />} />
+                <Route path="/" element={<Dashboard events={events} />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<SignUp />} />
-                <Route path="/event/:id" element={<EventDetails />} />
+                <Route path="/events/:id" element={<EventDetails events={events} />} />
             </Routes>
             <Footer />
         </Router>
