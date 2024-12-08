@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import events from '../utils/api';
 import EventCard from '../components/EventCard';
 import '../styles/Dashboard.css';
 
-const Dashboard = () => {
+const Dashboard = ({ events }) => {
     const [eventList, setEventList] = useState([]);
 
     useEffect(() => {
-        setEventList(events);
-    }, []);
+        setEventList(events); // Load event data from props
+    }, [events]);
 
     return (
         <div className="dashboard">
