@@ -4,7 +4,7 @@ import '../styles/About.css';
 const AboutUs = () => {
     return (
         <div className="about-us">
-            <div className="hero">
+            <div className="intro">
                 <h1>About <span>GoPass</span></h1>
                 <p>
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -53,7 +53,6 @@ const AboutUs = () => {
                     <p><strong>Phone:</strong> +1 800 123 456</p>
                     <p><strong>Email:</strong> contact@gopass.com</p>
                     <p><strong>Address:</strong> 123 Event Street, City, State, ZIP</p>
-                    
                 </div>
             </div>
         </div>
