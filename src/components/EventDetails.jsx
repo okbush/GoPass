@@ -1,31 +1,35 @@
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import '../styles/EventDetails.css';
-import events from '../utils/api';
 
-function EventDetails() {
+const EventDetails = ({ events }) => {
     const { id } = useParams();
-    const [event, setEvent] = useState(null);
+    const event = events.find(event => event.id.toString() === id);
 
-    useEffect(() => {
-        // Fetch event details from API (placeholder for now)
-        setEvent({
-            id,
-            title: 'Pinoy Indie Film Festival',
-            description: 'A festival celebrating independent films from the Philippines.',
-            image: 'path-to-image',
-        });
-    }, [id]);
-
-    if (!event) return <div>Loading...</div>;
+    if (!event) {
+        return <div className="event-details">Event not found!</div>;
+    }
 
     return (
         <div className="event-details">
-            <img src={event.image} alt={event.title} />
-            <h2>{event.title}</h2>
+            <img src={event.image} alt={event.title} className="event-details-image" />
+            <h1>{event.title}</h1>
+            <p className="event-organizer">
+                organized by <a href={event.organizerLink}>{event.organizer}</a>
+            </p>
+            <div className="event-meta">
+                <p><strong>Date:</strong> {event.date}</p>
+                <p><strong>Location:</strong> {event.location}</p>
+                <p><strong>Time:</strong> {event.time}</p>
+            </div>
             <p>{event.description}</p>
+            <a href={`/buy/${event.id}`} className="buy-tickets-link">Buy Tickets</a>
+            <div className="additional-info">
+                <h3>Event Guidelines and Policies</h3>
+                <p>Follow the event's rules and guidelines for a safe and enjoyable experience.</p>
+            </div>
         </div>
     );
-}
+};
 
 export default EventDetails;
