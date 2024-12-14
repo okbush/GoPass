@@ -16,11 +16,11 @@ const Dashboard = ({ events }) => {
                 <input type="text" placeholder="Enter Event Name" />
                 <button>Search</button>
             </div>
-            <div className="event-list">
+            {/* <div className="event-list">
                 {eventList.map((event) => (
                     <EventCard key={event.id} event={event} />
                 ))}
-            </div>
+            </div> */}
         </div>
     );
 };
