@@ -1,34 +1,103 @@
-.signup {
-    padding: 20px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .signup h2 {
-    margin-bottom: 20px;
-  }
-  
-  .signup form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .signup input[type="text"], .signup input[type="email"], .signup input[type="password"] {
-    padding: 10px;
-    margin: 10px 0;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .signup button {
-    padding: 10px 20px;
-    background-color: #4b0082;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .signup button:hover {
-    background-color: #370063;
-  }
-  
+/* Signup.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.signup-container {
+  display: flex;
+  height: 100vh;
+}
+
+.signup-left {
+  flex: 1;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.signup-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.signup-box {
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.signup-box h1 {
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.signup-box p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.signup-form {
+  margin-top: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-options {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.signup-button {
+  background: #000;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.signup-button:hover {
+  background: #333;
+}
+
+.signup-box a {
+  color: #8A2BE2;
+  text-decoration: none;
+}
+
+.signup-box a:hover {
+  text-decoration: underline;
+}
