@@ -1,17 +1,84 @@
 .event-details {
-    padding: 20px;
-  }
-  
-  .event-details img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .event-details h2 {
-    margin: 20px 0 10px;
-  }
-  
-  .event-details p {
-    color: #555;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.event-details h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.event-details img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.event-details p {
+  margin: 10px 0;
+}
+
+.event-details .event-meta {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.event-details .event-meta strong {
+  font-weight: bold;
+}
+
+.event-details a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #6c4dd8;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.event-details a:hover {
+  background-color: #5b3ec0;
+}
+
+.event-details .event-organizer {
+  font-size: 0.9em;
+  margin-bottom: 20px;
+  color: #888;
+}
+
+.event-details .event-organizer a {
+  color: #6c4dd8;
+  text-decoration: none;
+}
+
+.event-details .event-organizer a:hover {
+  text-decoration: underline;
+}
+
+/* Section for additional event info like guidelines */
+.event-details .additional-info {
+  margin-top: 40px;
+  font-size: 0.95em;
+  color: #555;
+}
+
+.event-details .additional-info h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.event-details .additional-info p {
+  margin: 5px 0;
+}
