@@ -1,3 +1,3 @@
-# GoPass Taylor's Ver
+# My Last Straw
 
-A woman in her mid 30's trynna be a teen pop star! 
+insert suicide note
