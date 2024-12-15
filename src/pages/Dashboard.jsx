@@ -13,8 +13,13 @@ const Dashboard = () => {
         const loadEvents = async () => {
             try {
                 const events = await fetchEvents();
-                setEventList(events); // Save all events
-                setFilteredEvents(events); // Initially show all events
+                console.log('Fetched events:', events); // Log the fetched data
+                if (Array.isArray(events)) {
+                    setEventList(events); // Save all events
+                    setFilteredEvents(events); // Initially show all events
+                } else {
+                    console.error('Events data is not an array:', events);
+                }
             } catch (error) {
                 console.error('Failed to load events:', error);
             }
@@ -30,7 +35,7 @@ const Dashboard = () => {
 
         // Filter events based on query
         const filtered = eventList.filter((event) =>
-            event.EventName.toLowerCase().includes(query.toLowerCase())
+            event.title.toLowerCase().includes(query.toLowerCase())
         );
         setFilteredEvents(filtered);
     };
@@ -38,7 +43,7 @@ const Dashboard = () => {
     // Handle search button click
     const handleSearchClick = () => {
         const filtered = eventList.filter((event) =>
-            event.EventName.toLowerCase().includes(searchQuery.toLowerCase())
+            event.title.toLowerCase().includes(searchQuery.toLowerCase())
         );
         setFilteredEvents(filtered);
     };
@@ -58,7 +63,7 @@ const Dashboard = () => {
             <div className="event-list">
                 {filteredEvents.length > 0 ? (
                     filteredEvents.map((event) => (
-                        <EventCard key={event.EventID} event={event} />
+                        <EventCard key={event.id} event={event} />
                     ))
                 ) : (
                     <p>No events found</p>
