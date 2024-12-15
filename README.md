@@ -27,9 +27,10 @@ npm init -y
 npm install express
 npm install express mysql2 cors
 ```
+##After Downloading all the dependencies
+unpack the go pass zip in the folder, if there's overlap, replace all.
 
-
-## After Setup
+## Opening
 open cmd
 To activate the backend:
 ```
