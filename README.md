@@ -1,4 +1,4 @@
-# How to set this up
+# How to set GoPass
 
 Open Xampp and start apache and MySQL
 Import the eventmanagement.sql
