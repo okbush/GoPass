@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql2');
+const path = require('path');
 
 const app = express();
 const port = 5000;
@@ -8,6 +9,9 @@ const port = 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from the "public/images" directory
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 // Database connection
 const db = mysql.createConnection({
@@ -31,19 +35,14 @@ db.connect((err) => {
 const eventRoutes = require('./routes/event')(db); // Pass db to routes
 
 // Use routes
-app.use('/api/event', eventRoutes);
+app.use('/api/event', eventRoutes); // Route for events is '/api/event'
 
-// Test endpoint
-app.get('/api/test', (req, res) => {
-    res.json({ message: 'API is working!' });
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'API is running' });
 });
 
 // Start server
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
-
-const path = require('path');
-
-// Serve static files from the "public/images" directory
-app.use('/images', express.static(path.join(__dirname, 'public/images')));

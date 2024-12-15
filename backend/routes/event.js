@@ -7,11 +7,20 @@ module.exports = (db) => {
     router.get('/', (req, res) => {
         const query = `
             SELECT 
-                EventID AS id, 
-                EventName AS title, 
-                Description AS description, 
-                Image AS image 
-            FROM event`;
+                EventID, 
+                OrganizerID, 
+                VenueID, 
+                EventName, 
+                Description, 
+                DateStart, 
+                DateEnd, 
+                Time, 
+                Status, 
+                CreatedAt, 
+                Availability, 
+                Image 
+            FROM event
+        `;
         db.query(query, (err, results) => {
             if (err) {
                 console.error('Error fetching events:', err);
@@ -21,7 +30,6 @@ module.exports = (db) => {
             }
         });
     });
-    
 
     return router;
 };
