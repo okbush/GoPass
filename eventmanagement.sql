@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2024 at 04:18 AM
+-- Generation Time: Dec 15, 2024 at 02:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,15 +30,18 @@ USE `eventmanagement`;
 --
 
 DROP TABLE IF EXISTS `booking`;
-CREATE TABLE `booking` (
-  `BookingID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `booking` (
+  `BookingID` int(11) NOT NULL AUTO_INCREMENT,
   `EventID` int(11) NOT NULL,
   `PaymentID` int(11) DEFAULT NULL,
   `UserID` int(11) NOT NULL,
   `BookingDate` date NOT NULL,
   `Status` enum('Pending','Confirmed','Canceled') DEFAULT 'Pending',
-  `TicketPrice` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `TicketPrice` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`BookingID`),
+  KEY `EventID` (`EventID`),
+  KEY `UserID` (`UserID`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `booking`
@@ -63,8 +66,8 @@ INSERT INTO `booking` (`BookingID`, `EventID`, `PaymentID`, `UserID`, `BookingDa
 --
 
 DROP TABLE IF EXISTS `event`;
-CREATE TABLE `event` (
-  `EventID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `event` (
+  `EventID` int(11) NOT NULL AUTO_INCREMENT,
   `OrganizerID` int(11) NOT NULL,
   `VenueID` int(11) NOT NULL,
   `EventName` varchar(150) NOT NULL,
@@ -75,19 +78,22 @@ CREATE TABLE `event` (
   `Status` enum('Active','Canceled','Completed') DEFAULT 'Active',
   `CreatedAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `Availability` int(11) NOT NULL,
-  `Image` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`EventID`),
+  KEY `OrganizerID` (`OrganizerID`),
+  KEY `VenueID` (`VenueID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `event`
 --
 
 INSERT INTO `event` (`EventID`, `OrganizerID`, `VenueID`, `EventName`, `Description`, `DateStart`, `DateEnd`, `Time`, `Status`, `CreatedAt`, `Availability`, `Image`) VALUES
-(1, 1, 1, 'Tech Conference 2024', 'A conference for tech enthusiasts.', '2024-01-15', '2024-01-16', '09:00:00', 'Active', '2024-12-15 01:51:07', 200, 'images/tech_conference.jpg'),
-(2, 2, 2, 'Music Festival', 'An outdoor music festival.', '2024-05-20', '2024-05-22', '10:00:00', 'Active', '2024-12-15 01:51:07', 500, 'images/music_festival.jpg'),
-(3, 1, 3, 'Art Exhibition', 'A showcase of modern art.', '2024-09-10', '2024-09-12', '11:00:00', 'Active', '2024-12-15 01:51:07', 300, 'images/art_exhibition.jpg'),
-(4, 2, 1, 'Business Summit', 'A summit for business leaders.', '2024-03-25', '2024-03-26', '08:00:00', 'Active', '2024-12-15 01:51:07', 150, 'images/business_summit.jpg'),
-(5, 1, 2, 'Health Expo', 'An expo on health and wellness.', '2024-07-30', '2024-07-31', '09:30:00', 'Active', '2024-12-15 01:51:07', 400, 'images/health_expo.jpg');
+(1, 1, 1, 'Tech Conference 2024', 'A conference for tech enthusiasts.', '2024-01-15', '2024-01-16', '09:00:00', 'Active', '2024-12-15 01:51:07', 200, 'tech_conference.jpg'),
+(2, 2, 2, 'Music Festival', 'An outdoor music festival.', '2024-05-20', '2024-05-22', '10:00:00', 'Active', '2024-12-15 01:51:07', 500, 'music_festival.jpg'),
+(3, 1, 3, 'Art Exhibition', 'A showcase of modern art.', '2024-09-10', '2024-09-12', '11:00:00', 'Active', '2024-12-15 01:51:07', 300, 'art_exhibition.jpg'),
+(4, 2, 1, 'Business Summit', 'A summit for business leaders.', '2024-03-25', '2024-03-26', '08:00:00', 'Active', '2024-12-15 01:51:07', 150, 'business_summit.jpg'),
+(5, 1, 2, 'Health Expo', 'An expo on health and wellness.', '2024-07-30', '2024-07-31', '09:30:00', 'Active', '2024-12-15 01:51:07', 400, 'health_expo.jpg');
 
 -- --------------------------------------------------------
 
@@ -96,12 +102,14 @@ INSERT INTO `event` (`EventID`, `OrganizerID`, `VenueID`, `EventName`, `Descript
 --
 
 DROP TABLE IF EXISTS `organizer`;
-CREATE TABLE `organizer` (
-  `OrganizerID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `organizer` (
+  `OrganizerID` int(11) NOT NULL AUTO_INCREMENT,
   `UserID` int(11) NOT NULL,
   `OrganizerName` varchar(100) NOT NULL,
-  `OrganizerInfo` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `OrganizerInfo` text DEFAULT NULL,
+  PRIMARY KEY (`OrganizerID`),
+  KEY `UserID` (`UserID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `organizer`
@@ -118,14 +126,16 @@ INSERT INTO `organizer` (`OrganizerID`, `UserID`, `OrganizerName`, `OrganizerInf
 --
 
 DROP TABLE IF EXISTS `payment`;
-CREATE TABLE `payment` (
-  `PaymentID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `payment` (
+  `PaymentID` int(11) NOT NULL AUTO_INCREMENT,
   `BookingID` int(11) NOT NULL,
   `Amount` decimal(10,2) NOT NULL,
   `PaymentDate` date NOT NULL,
   `PaymentMethod` enum('Credit Card','Debit Card','PayPal','Bank Transfer','Cash') NOT NULL,
-  `Status` enum('Pending','Completed','Failed') DEFAULT 'Pending'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Status` enum('Pending','Completed','Failed') DEFAULT 'Pending',
+  PRIMARY KEY (`PaymentID`),
+  KEY `BookingID` (`BookingID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payment`
@@ -145,15 +155,17 @@ INSERT INTO `payment` (`PaymentID`, `BookingID`, `Amount`, `PaymentDate`, `Payme
 --
 
 DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-  `UserID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `UserID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) NOT NULL,
   `Email` varchar(150) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `PhoneNumber` varchar(15) DEFAULT NULL,
   `ProfilePicture` varchar(255) DEFAULT NULL,
-  `Role` enum('User','Admin','Organizer') DEFAULT 'User'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Role` enum('User','Admin','Organizer') DEFAULT 'User',
+  PRIMARY KEY (`UserID`),
+  UNIQUE KEY `Email` (`Email`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -173,14 +185,15 @@ INSERT INTO `users` (`UserID`, `Name`, `Email`, `Password`, `PhoneNumber`, `Prof
 --
 
 DROP TABLE IF EXISTS `venue`;
-CREATE TABLE `venue` (
-  `VenueID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `venue` (
+  `VenueID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(150) NOT NULL,
   `Address` text NOT NULL,
   `Capacity` int(11) NOT NULL,
   `Type` enum('Indoor','Outdoor','Hybrid') NOT NULL,
-  `ContactInfo` varchar(150) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `ContactInfo` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`VenueID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `venue`
@@ -190,93 +203,6 @@ INSERT INTO `venue` (`VenueID`, `Name`, `Address`, `Capacity`, `Type`, `ContactI
 (1, 'Grand Hall', '123 Main St, New York, NY', 500, 'Indoor', 'contact@grandhall.com'),
 (2, 'Open Air Park', '456 Park Ave, Los Angeles, CA', 1000, 'Outdoor', 'info@openairpark.com'),
 (3, 'Hybrid Center', '789 Central Blvd, San Francisco, CA', 750, 'Hybrid', 'support@hybridcenter.com');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `booking`
---
-ALTER TABLE `booking`
-  ADD PRIMARY KEY (`BookingID`),
-  ADD KEY `EventID` (`EventID`),
-  ADD KEY `UserID` (`UserID`);
-
---
--- Indexes for table `event`
---
-ALTER TABLE `event`
-  ADD PRIMARY KEY (`EventID`),
-  ADD KEY `OrganizerID` (`OrganizerID`),
-  ADD KEY `VenueID` (`VenueID`);
-
---
--- Indexes for table `organizer`
---
-ALTER TABLE `organizer`
-  ADD PRIMARY KEY (`OrganizerID`),
-  ADD KEY `UserID` (`UserID`);
-
---
--- Indexes for table `payment`
---
-ALTER TABLE `payment`
-  ADD PRIMARY KEY (`PaymentID`),
-  ADD KEY `BookingID` (`BookingID`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`UserID`),
-  ADD UNIQUE KEY `Email` (`Email`);
-
---
--- Indexes for table `venue`
---
-ALTER TABLE `venue`
-  ADD PRIMARY KEY (`VenueID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `booking`
---
-ALTER TABLE `booking`
-  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `event`
---
-ALTER TABLE `event`
-  MODIFY `EventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `organizer`
---
-ALTER TABLE `organizer`
-  MODIFY `OrganizerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `payment`
---
-ALTER TABLE `payment`
-  MODIFY `PaymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `venue`
---
-ALTER TABLE `venue`
-  MODIFY `VenueID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
