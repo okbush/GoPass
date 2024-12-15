@@ -1,35 +1,20 @@
 const express = require('express');
 const cors = require('cors');
-const mysql = require('mysql2');
+const bodyParser = require('body-parser');
 const path = require('path');
+const db = require('./db/db'); // Import the centralized DB connection
+
+const PORT = process.env.PORT || 5000;
 
 const app = express();
-const port = 5000;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
 
 // Serve static files from the "public/images" directory
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
-
-// Database connection
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root', // XAMPP default user
-    password: '', // XAMPP default password
-    database: 'eventmanagement', // Replace with your actual database name
-});
-
-// Verify database connection
-db.connect((err) => {
-    if (err) {
-        console.error('Database connection failed:', err);
-        process.exit(1); // Stop the server if DB connection fails
-    } else {
-        console.log('Connected to MySQL database');
-    }
-});
 
 // Route imports
 const eventRoutes = require('./routes/event')(db); // Pass db to routes
@@ -43,6 +28,6 @@ app.get('/api/health', (req, res) => {
 });
 
 // Start server
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });
