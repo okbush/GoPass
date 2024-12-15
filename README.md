@@ -25,7 +25,7 @@ npm install express
 npm install express mysql2 cors
 ```
 ## After the Downloads
-unpack the go pass zip in the folder, if there's overlap, replace all.
+unzip the folder, copy the content in the GoPass folder, there should be a promt to replace files, replace them.
 Open Xampp and start *apache* and *MySQL*
 Import the ***eventmanagement.sql***
 
