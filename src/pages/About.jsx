@@ -14,7 +14,7 @@ const AboutUs = () => {
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                 </p>
             </div>
-            <div className="services">
+            <section className="services">
                 <h2>Services</h2>
                 <p>
                     Explore our range of services. We offer a comprehensive package for event management and ticketing.
@@ -38,15 +38,15 @@ const AboutUs = () => {
                         <p>Ensure a seamless user experience with our testing services.</p>
                     </div>
                 </div>
-            </div>
-            <div className="contact">
+            </section>
+            <section className="contact">
                 <h2>Get in Touch</h2>
                 <p>Have a question or want to know more about our services? Drop us a line and we’ll get back to you as soon as possible.</p>
-                <form className="contact-form">
-                    <input type="text" placeholder="Your Name" />
-                    <input type="email" placeholder="Your Email" />
-                    <input type="text" placeholder="Subject" />
-                    <textarea placeholder="Your Message"></textarea>
+                <form className="contact-form" aria-label="Contact Form">
+                    <input type="text" placeholder="Your Name" aria-label="Your Name" required />
+                    <input type="email" placeholder="Your Email" aria-label="Your Email" required />
+                    <input type="text" placeholder="Subject" aria-label="Subject" required />
+                    <textarea placeholder="Your Message" aria-label="Your Message" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
                 <div className="contact-info">
@@ -54,7 +54,7 @@ const AboutUs = () => {
                     <p><strong>Email:</strong> contact@gopass.com</p>
                     <p><strong>Address:</strong> 123 Event Street, City, State, ZIP</p>
                 </div>
-            </div>
+            </section>
         </div>
     );
 };

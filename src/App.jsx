@@ -1,12 +1,15 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Dashboard from './pages/Dashboard';
 import About from './pages/About';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Services from './pages/Services';
 import EventDetails from './components/EventDetails';
+
 import { fetchEvents } from './utils/api'; // Import the fetchEvents function
 
 function App() {
@@ -39,15 +42,20 @@ function App() {
 
     return (
         <Router>
-            <NavBar />
-            <Routes>
-                <Route path="/" element={<Dashboard events={events} />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/events/:id" element={<EventDetails events={events} />} />
-            </Routes>
-            <Footer />
+            <div className="app-container">
+                <NavBar />
+                <main className="main-content">
+                    <Routes>
+                        <Route path="/" element={<Dashboard events={events} />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="/services" element={<Services />} />
+                        <Route path="/events/:id" element={<EventDetails events={events} />} />
+                    </Routes>
+                </main>
+                <Footer />
+            </div>
         </Router>
     );
 }

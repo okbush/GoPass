@@ -23,20 +23,20 @@ body {
 .signup-right {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  /*background: #fff;*/
+  justify-content: flex-end; /* Align to the right on wide screens */
+  align-items: center; /* Center vertically */
+  padding-right: 20px; /* Add padding on the right */
 }
 
 .signup-box {
   width: 90%;
-  max-width: 400px;
+  max-width: 400px; /* Maximum width */
+  min-width: 300px; /* Minimum width to prevent it from getting too narrow */
   text-align: center;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    background: #fff;
-
+  background: #fff;
 }
 
 .signup-box h1 {
@@ -91,7 +91,12 @@ body {
   width: 100%;
 }
 
-.signup-button:hover {
+.signup-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.signup-button:hover:not(:disabled) {
   background: #333;
 }
 
@@ -102,4 +107,24 @@ body {
 
 .signup-box a:hover {
   text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .signup-right {
+    justify-content: flex-end; /* Keep aligned to the right on narrow screens */
+    padding-right: 10px; /* Adjust right padding for smaller screens */
+  }
+
+  .signup-box {
+    width: 90%; /* Allow it to take more width on smaller screens */
+    max-width: 400px; /* Maintain max width */
+    min-width: 300px; /* Maintain min width */
+    padding: 1.5rem; /* Adjust padding for smaller screens */
+  }
 }
