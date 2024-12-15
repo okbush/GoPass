@@ -53,3 +53,9 @@
 .buy-tickets-link:hover {
   background-color: #0056b3; /* Darker shade on hover */
 }
+
+.event-details-image {
+  max-width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: rounded corners */
+}

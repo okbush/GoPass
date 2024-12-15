@@ -38,13 +38,17 @@ const EventDetails = () => {
         return <div className="event-details">Event not found!</div>;
     }
 
+    // Construct the full image URL
+    const imageUrl = `/images/${event.image}`; // Accessing image from public/images
+
     return (
         <div className="event-details">
             <div className="event-header">
                 <img 
-                    src={`${import.meta.env.VITE_API_URL}/${event.image}`} 
+                    src={imageUrl} 
                     alt={event.title} 
                     className="event-details-image" 
+                    onError={(e) => { e.target.src = '/images/placeholder-image.jpg'; }} // Fallback image
                 />
                 <h1>{event.title}</h1>
                 <p className="event-organizer">

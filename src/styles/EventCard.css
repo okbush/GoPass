@@ -59,3 +59,11 @@
 .event-link:hover {
   background-color: #0056b3;
 }
+
+.event-image {
+  transition: opacity 0.5s ease-in-out; /* Add transition effect */
+}
+
+.event-image.error {
+  opacity: 0.5; /* Reduce opacity when there's an error */
+}
