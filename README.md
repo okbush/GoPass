@@ -10,6 +10,8 @@ Setup React Vite - javascript
 ```
 npm create vite@latest
 ```
+Name it GoPass
+
 
 For the front end:
 ```
