@@ -1,37 +1,49 @@
 const express = require('express');
 const cors = require('cors');
+const mysql = require('mysql2');
+
 const app = express();
 const port = 5000;
 
+// Middleware
 app.use(cors());
-app.use(express.json()); // for parsing application/json
+app.use(express.json());
 
 // Database connection
-const mysql = require('mysql2');
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root', // default XAMPP user
-  password: '', // default is empty
-  database: 'eventmanagement',
+    host: 'localhost',
+    user: 'root', // XAMPP default user
+    password: '', // XAMPP default password
+    database: 'eventmanagement', // Replace with your actual database name
 });
 
+// Verify database connection
 db.connect((err) => {
-  if (err) {
-    console.error('Database connection failed:', err);
-  } else {
-    console.log('Connected to MySQL database');
-  }
+    if (err) {
+        console.error('Database connection failed:', err);
+        process.exit(1); // Stop the server if DB connection fails
+    } else {
+        console.log('Connected to MySQL database');
+    }
 });
+
+// Route imports
+const eventRoutes = require('./routes/event')(db); // Pass db to routes
+
+// Use routes
+app.use('/api/event', eventRoutes);
 
 // Test endpoint
 app.get('/api/test', (req, res) => {
-  res.json({ message: 'API is working!' });
+    res.json({ message: 'API is working!' });
 });
 
-// User routes
-const userRoutes = require('./routes/users');
-app.use('/api/users', userRoutes);
-
+// Start server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });
+
+const path = require('path');
+
+// Serve static files from the "public/images" directory
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
