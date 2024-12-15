@@ -40,14 +40,6 @@ const Dashboard = () => {
         setFilteredEvents(filtered);
     };
 
-    // Handle search button click
-    const handleSearchClick = () => {
-        const filtered = eventList.filter((event) =>
-            event.title.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-        setFilteredEvents(filtered);
-    };
-
     return (
         <div className="dashboard">
             <div className="hero">
@@ -58,12 +50,11 @@ const Dashboard = () => {
                     value={searchQuery}
                     onChange={handleSearchChange} // Update query on input change
                 />
-                <button onClick={handleSearchClick}>Search</button>
             </div>
             <div className="event-list">
                 {filteredEvents.length > 0 ? (
                     filteredEvents.map((event) => (
-                        <EventCard key={event.id} event={event} />
+                        <EventCard key={`${event.id}-${event.title}`} event={event} /> // Ensure unique key
                     ))
                 ) : (
                     <p>No events found</p>

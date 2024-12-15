@@ -6,14 +6,9 @@ const api = axios.create({
 
 // Fetch events from API
 export const fetchEvents = async () => {
-    try {
-        const response = await api.get('/api/event'); // Fetches events from the backend
-        console.log('API response:', response.data); // Log the API response
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching events:', error);
-        throw error;
-    }
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/event`);
+    return response.data.data; // Return only the data array
 };
+
 
 export default api;

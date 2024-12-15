@@ -1,84 +1,55 @@
 .event-details {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
-  color: #333;
-  line-height: 1.6;
+  max-width: 800px; /* Set a maximum width for the details section */
+  margin: 20px auto; /* Center the section horizontally */
+  padding: 20px; /* Add padding for spacing */
+  border: 1px solid #ddd; /* Light border for separation */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-.event-details h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  color: #222;
-  margin-bottom: 10px;
+.event-header {
+  text-align: center; /* Center align the header content */
 }
 
-.event-details img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 20px;
+.event-details-image {
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for the image */
 }
 
-.event-details p {
-  margin: 10px 0;
+.event-organizer,
+.event-venue,
+.event-date,
+.event-time {
+  font-size: 1.1em; /* Slightly larger font for emphasis */
+  margin: 10px 0; /* Spacing between lines */
 }
 
-.event-details .event-meta {
-  font-size: 1em;
-  color: #555;
-  margin-bottom: 20px;
+.event-description {
+  margin-top: 20px; /* Space above the description */
 }
 
-.event-details .event-meta strong {
-  font-weight: bold;
+.event-description h2 {
+  font-size: 1.5em; /* Larger font for the description heading */
+  margin-bottom: 10px; /* Space below the heading */
 }
 
-.event-details a {
-  display: inline-block;
-  text-decoration: none;
-  background-color: #6c4dd8;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-top: 20px;
-  font-size: 1.1em;
-  transition: background-color 0.3s ease;
+.event-actions {
+  margin-top: 20px; /* Space above the actions section */
+  text-align: center; /* Center align the actions */
 }
 
-.event-details a:hover {
-  background-color: #5b3ec0;
+.buy-tickets-link {
+  display: inline-block; /* Make the link a block element */
+  padding: 10px 20px; /* Padding for the button */
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* White text */
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Rounded corners for the button */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
-.event-details .event-organizer {
-  font-size: 0.9em;
-  margin-bottom: 20px;
-  color: #888;
-}
-
-.event-details .event-organizer a {
-  color: #6c4dd8;
-  text-decoration: none;
-}
-
-.event-details .event-organizer a:hover {
-  text-decoration: underline;
-}
-
-/* Section for additional event info like guidelines */
-.event-details .additional-info {
-  margin-top: 40px;
-  font-size: 0.95em;
-  color: #555;
-}
-
-.event-details .additional-info h3 {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.event-details .additional-info p {
-  margin: 5px 0;
+.buy-tickets-link:hover {
+  background-color: #0056b3; /* Darker shade on hover */
 }
