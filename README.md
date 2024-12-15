@@ -6,6 +6,10 @@ Import the eventmanagement.sql
 using Command Prompt enter
 cd C:\{Location}
 
+Setup React Vite - javascript
+```
+npm create vite@latest
+```
 
 For the front end:
 ```
