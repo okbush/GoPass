@@ -1,10 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuth } from '../context/AuthContext'; // Import the useAuth hook
 import '../styles/NavBar.css';
 
 const NavBar = ({ logoSrc = "/logo_invert.png", logoAlt = "GoPass Logo" }) => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
+    const { isAuthenticated } = useAuth(); // Get the authentication state
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -30,7 +32,11 @@ const NavBar = ({ logoSrc = "/logo_invert.png", logoAlt = "GoPass Logo" }) => {
           </ul>
         </nav>
         <div className="navbar-login">
-          <Link to="/login">Log In</Link>
+          {isAuthenticated ? (
+            <Link to="/profile">Your Profile</Link> // Show "Your Profile" if authenticated
+          ) : (
+            <Link to="/login">Log In</Link> // Show "Log In" if not authenticated
+          )}
         </div>
         <button 
           className="navbar-toggle" 

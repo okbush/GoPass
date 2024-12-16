@@ -17,6 +17,7 @@ const EventDetails = () => {
                 const response = await axios.get(url);
                 setEvent(response.data.data); // Set the event data correctly
             } catch (err) {
+                console.error('Error fetching event:', err); // Log the error
                 setError('Failed to fetch event details. Please try again later.');
             } finally {
                 setLoading(false);
