@@ -2,7 +2,7 @@
 
 ## Downloads
 using *Command Prompt* enter
-cd C:\*{Location}*
+cd C:\ *{Location}*
 
 Setup React Vite - javascript
 ```
@@ -14,6 +14,8 @@ For the front end:
 ```
 npm install react-router-dom
 npm install axios
+npm install zustand
+npm install concurrently --save-dev
 ```
 
 For the back end:
@@ -32,6 +34,14 @@ Import the ***eventmanagement.sql***
 ## Opening
 make sure Xampp, *apache*, and *MySQL* is open with the eventmanager database up
 
+### Use 
+cd C:\ *{Location}*
+```
+npm run start:all
+```
+
+### Or
+Manual
 open cmd
 To activate the backend:
 ```
