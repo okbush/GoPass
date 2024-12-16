@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import '../styles/NavBar.css'; 
+import '../styles/NavBar.css';
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,21 +13,20 @@ const NavBar = () => {
     return (
       <header className="navbar">
         <div className="navbar-logo">
-          <Link to="/">GoPass</Link>
+          <img src="logo_invert.png" alt="logo" className="logo" />
+          <Link to="/"> GoPass</Link>
         </div>
         <nav className={`navbar-links ${isOpen ? 'open' : ''}`}>
           <ul>
             <li className={location.pathname === '/' ? 'active' : ''}>
-              <Link to="/">Home</Link>
+              <Link to="/">Events</Link>
+            </li>
+            {/*change this */}
+            <li className={location.pathname === '/services' ? 'active' : ''}> 
+              <Link to="/services">Organizations</Link>
             </li>
             <li className={location.pathname === '/about' ? 'active' : ''}>
               <Link to="/about">About</Link>
-            </li>
-            <li className={location.pathname === '/services' ? 'active' : ''}>
-              <Link to="/services">Services</Link>
-            </li>
-            <li className={location.pathname === '/contact' ? 'active' : ''}>
-              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </nav>
