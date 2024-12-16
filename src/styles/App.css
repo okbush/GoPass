@@ -1,21 +1,16 @@
-/* App.css */
 html, body {
-  height: 100%; /* Ensure the body takes full height */
-  margin: 0; /* Remove default margin */
+  height: 100%;
+  margin: 0;
 }
-
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full height of the viewport */
+  min-height: 100vh;
 }
-
 .main-content {
-  flex: 1; /* This allows the main content to grow and take available space */
-  padding: 20px; /* Optional: Add some padding */
+  flex: 1;
+  padding: 20px;
 }
-
-/* Ensure the background applies correctly */
 body {
   margin: 0;
   font-family: Arial, sans-serif;

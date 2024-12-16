@@ -1,10 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuth } from '../context/AuthContext'; // Import the useAuth hook
 import '../styles/NavBar.css';
 
-const NavBar = () => {
+const NavBar = ({ logoSrc = "/logo_invert.png", logoAlt = "GoPass Logo" }) => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
+    const { isAuthenticated } = useAuth(); // Get the authentication state
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -13,7 +15,7 @@ const NavBar = () => {
     return (
       <header className="navbar">
         <div className="navbar-logo">
-          <img src="logo_invert.png" alt="logo" className="logo" />
+          <img src={logoSrc} alt={logoAlt} className="logo" />
           <Link to="/"> GoPass</Link>
         </div>
         <nav className={`navbar-links ${isOpen ? 'open' : ''}`}>
@@ -21,7 +23,6 @@ const NavBar = () => {
             <li className={location.pathname === '/' ? 'active' : ''}>
               <Link to="/">Events</Link>
             </li>
-            {/*change this */}
             <li className={location.pathname === '/services' ? 'active' : ''}> 
               <Link to="/services">Organizations</Link>
             </li>
@@ -31,9 +32,18 @@ const NavBar = () => {
           </ul>
         </nav>
         <div className="navbar-login">
-          <Link to="/login">Log In</Link>
+          {isAuthenticated ? (
+            <Link to="/profile">Your Profile</Link> // Show "Your Profile" if authenticated
+          ) : (
+            <Link to="/login">Log In</Link> // Show "Log In" if not authenticated
+          )}
         </div>
-        <button className="navbar-toggle" onClick={toggleMenu}>
+        <button 
+          className="navbar-toggle" 
+          onClick={toggleMenu} 
+          aria-expanded={isOpen} 
+          aria-label="Toggle navigation menu"
+        >
           ☰
         </button>
       </header>

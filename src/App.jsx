@@ -9,53 +9,60 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Services from './pages/Services';
 import EventDetails from './components/EventDetails';
+import Profile from './pages/Profile'; // Import the Profile component
+import ProfileUpdate from './pages/ProfileUpdate';
 
-import { fetchEvents } from './utils/api';                      // Import the fetchEvents function
+import { fetchEvents } from './utils/api'; // Import the fetchEvents function
+import { AuthProvider } from './context/AuthContext'; // Import the AuthProvider
 
 function App() {
-    const [events, setEvents] = useState([]);                   // State to hold events
-    const [loading, setLoading] = useState(true);               // State to manage loading state
-    const [error, setError] = useState(null);                   // State to manage error state
+    const [events, setEvents] = useState([]); // State to hold events
+    const [loading, setLoading] = useState(true); // State to manage loading state
+    const [error, setError] = useState(null); // State to manage error state
 
     useEffect(() => {
         const loadEvents = async () => {
-            const { data, error } = await fetchEvents();        // Fetch events from API
+            const { data, error } = await fetchEvents(); // Fetch events from API
             if (error) {
-                setError(error);                                // Set error message if fetching fails
+                setError(error); // Set error message if fetching fails
             } else {
-                setEvents(data);                                // Set events in state
+                setEvents(data); // Set events in state
             }
-            setLoading(false);                                  // Set loading to false after fetching
+            setLoading(false); // Set loading to false after fetching
         };
 
-        loadEvents();                                           // Call the function to load events
-    }, []);                                                     // Empty dependency array means this runs once on mount
+        loadEvents(); // Call the function to load events
+    }, []); // Empty dependency array means this runs once on mount
 
     if (loading) {
-        return <div>Loading events...</div>;                    // Show loading message
+        return <div>Loading events...</div>; // Show loading message
     }
 
     if (error) {
-        return <div>Error fetching events: {error}</div>;        // Show error message
+        return <div>Error fetching events: {error}</div>; // Show error message
     }
 
     return (
-        <Router>
-            <div className="app-container">
-                <NavBar />
-                <main className="main-content">
-                    <Routes>
-                        <Route path="/" element={<Dashboard events={events} />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/signup" element={<SignUp />} />
-                        <Route path="/services" element={<Services />} />
-                        <Route path="/events/:id" element={<EventDetails events={events} />} />
-                    </Routes>
-                </main>
-                <Footer />
-            </div>
-        </Router>
+        <AuthProvider> {/* Wrap your application with AuthProvider */}
+            <Router>
+                <div className="app-container">
+                    <NavBar />
+                    <main className="main-content">
+                        <Routes>
+                            <Route path="/" element={<Dashboard events={events} />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/signup" element={<SignUp />} />
+                            <Route path="/services" element={<Services />} />
+                            <Route path="/events/:id" element={<EventDetails events={events} />} />
+                            <Route path="/profile" element={<Profile />} /> {/* Add the Profile route */}
+                            <Route path="/profile/update" element={<ProfileUpdate />} />
+                        </Routes>
+                    </main>
+                    <Footer />
+                </div>
+            </Router>
+        </AuthProvider>
     );
 }
 

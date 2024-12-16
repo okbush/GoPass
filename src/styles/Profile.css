@@ -1,0 +1,66 @@
+.user-profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .user-profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .user-profile-details {
+    margin: 20px 0;
+  }
+  
+  .user-profile-details p {
+    margin: 5px 0;
+  }
+  
+  .booked-events-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .booked-event-item {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .profile-action-buttons {
+    margin-top: 20px;
+  }
+  
+  .logout-button, .update-profile-button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .logout-button {
+    background-color: #dc3545; color: white;
+  }
+  
+  .logout-button:hover {
+    background-color: #c82333;
+  }
+  
+  .update-profile-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .update-profile-button:hover {
+    background-color: #0056b3;
+  }
