@@ -68,18 +68,40 @@ router.put('/update', auth, [
   }
 });
 
-// Fetch user details (for the profile)
+// Fetch user details (for the profile) including booked events
 router.get('/me', auth, async (req, res) => {
   const userId = req.user.id; // Get user ID from the token
 
   try {
-      const [user] = await db.promise().query('SELECT Name, Email, PhoneNumber, ProfilePicture FROM users WHERE UserID = ?', [userId]);
-      if (user.length === 0) {
-          return res.status(404).json({ error: 'User  not found.' });
-      }
-      res.json(user[0]); // Return the user details
+    const [user] = await db.promise().query(`
+      SELECT u.Name, u.Email, u.PhoneNumber, u.ProfilePicture, 
+             b.EventID, e.EventName, b.BookingDate, b.Status
+      FROM users u
+      LEFT JOIN booking b ON u.UserID = b.UserID
+      LEFT JOIN event e ON b.EventID = e.EventID
+      WHERE u.UserID = ?`, [userId]);
+
+    if (user.length === 0) {
+      return res.status(404).json({ error: 'User  not found.' });
+    }
+
+    // Format the response to include booked events
+    const userDetails = {
+      Name: user[0].Name,
+      Email: user[0].Email,
+      PhoneNumber: user[0].PhoneNumber,
+      ProfilePicture: user[0].ProfilePicture,
+      bookedEvents: user.map(event => ({
+        EventID: event.EventID,
+        EventName: event.EventName,
+        BookingDate: event.BookingDate,
+        Status: event.Status
+      })).filter(event => event.EventID !== null) // Filter out events that are null
+    };
+
+    res.json(userDetails); // Return the user details including booked events
   } catch (err) {
-      res.status(500).json({ error: err.message });
+    res.status(500).json({ error: err.message });
   }
 });
 
