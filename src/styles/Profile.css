@@ -1,61 +1,66 @@
-.profile-container {
+.user-profile-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
-}
-.profile-picture {
-    display: block;
-    margin: 0 auto 20px;
+  }
+  
+  .user-profile-picture {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-}
-.profile-form {
-    display: flex;
-    flex-direction: column;
-}
-.form-group {
-    margin-bottom: 15px;
-}
-label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
-}
-input {
+    margin-bottom: 20px;
+  }
+  
+  .user-profile-details {
+    margin: 20px 0;
+  }
+  
+  .user-profile-details p {
+    margin: 5px 0;
+  }
+  
+  .booked-events-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .booked-event-item {
+    margin: 10px 0;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-input:focus {
-    border-color: #007bff;
-    outline: none;
-}
-.update-button,
-.logout-button {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .profile-action-buttons {
+    margin-top: 20px;
+  }
+  
+  .logout-button, .update-profile-button {
+    margin-right: 10px;
     padding: 10px 15px;
     border: none;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
-}
-.update-button {
-    background-color: #28a745;
-}
-.logout-button {
-    background-color: #dc3545;
-    margin-top: 10px;
-}
-.update-button:hover {
-    background-color: #218838;
-}
-.logout-button:hover {
+  }
+  
+  .logout-button {
+    background-color: #dc3545; color: white;
+  }
+  
+  .logout-button:hover {
     background-color: #c82333;
-}
+  }
+  
+  .update-profile-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .update-profile-button:hover {
+    background-color: #0056b3;
+  }

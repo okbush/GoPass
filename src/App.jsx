@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp';
 import Services from './pages/Services';
 import EventDetails from './components/EventDetails';
 import Profile from './pages/Profile'; // Import the Profile component
+import ProfileUpdate from './pages/ProfileUpdate';
 
 import { fetchEvents } from './utils/api'; // Import the fetchEvents function
 import { AuthProvider } from './context/AuthContext'; // Import the AuthProvider
@@ -55,6 +56,7 @@ function App() {
                             <Route path="/services" element={<Services />} />
                             <Route path="/events/:id" element={<EventDetails events={events} />} />
                             <Route path="/profile" element={<Profile />} /> {/* Add the Profile route */}
+                            <Route path="/profile/update" element={<ProfileUpdate />} />
                         </Routes>
                     </main>
                     <Footer />

@@ -20,10 +20,13 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('token', token);
   };
 
-  const logout = () => {
+  const logout = (navigate) => {
     setToken(null);
     setIsAuthenticated(false);
     localStorage.removeItem('token');
+    if (navigate) {
+      navigate('/'); // Redirect to the Dashboard after logout
+    }
   };
 
   return (
