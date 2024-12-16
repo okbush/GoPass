@@ -1,50 +1,42 @@
 .event-card {
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.9); /* Light background for contrast */
+  background-color: rgba(255, 255, 255, 0.9);
   color: #333;
   border-radius: 10px;
-  overflow: hidden; /* Ensures the image and content fit neatly */
+  overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
-
 .event-card:hover {
-  transform: scale(1.05); /* Subtle hover effect */
+  transform: scale(1.05);
 }
-
 .event-hero {
   width: 100%;
-  height: 180px; /* Set a fixed height for the hero section */
+  height: 180px;
   overflow: hidden;
 }
-
 .event-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures image covers the hero without distortion */
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
-
 .event-card:hover .event-image {
-  transform: scale(1.1); /* Slight zoom effect on hover */
+  transform: scale(1.1);
 }
-
 .event-content {
   padding: 15px;
 }
-
 .event-content h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
-
 .event-content p {
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 15px;
 }
-
 .event-link {
   display: inline-block;
   padding: 10px 15px;
@@ -55,15 +47,12 @@
   font-size: 1rem;
   transition: background-color 0.3s ease;
 }
-
 .event-link:hover {
   background-color: #0056b3;
 }
-
 .event-image {
-  transition: opacity 0.5s ease-in-out; /* Add transition effect */
+  transition: opacity 0.5s ease-in-out;
 }
-
 .event-image.error {
-  opacity: 0.5; /* Reduce opacity when there's an error */
+  opacity: 0.5;
 }

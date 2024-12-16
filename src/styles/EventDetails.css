@@ -1,95 +1,79 @@
 .event-details {
-  max-width: 800px; /* Set a maximum width for the details section */
-  margin: 20px auto; /* Center the section horizontally */
-  padding: 20px; /* Add padding for spacing */
-  border: 1px solid #ddd; /* Light border for separation */
-  border-radius: 8px; /* Rounded corners */
-  background-color: #fff; /* White background */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  overflow: hidden; /* Prevent overflow */
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
-
 .event-header {
-  text-align: center; /* Center align the header content */
+  text-align: center;
 }
-
 .event-details-image {
-  width: 100%; /* Make the image responsive */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Rounded corners for the image */
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
-
 .event-organizer,
 .event-venue,
 .event-date,
 .event-time {
-  font-size: 1.1em; /* Slightly larger font for emphasis */
-  margin: 10px 0; /* Spacing between lines */
+  font-size: 1.1em;
+  margin: 10px 0;
 }
-
 .event-description {
-  margin-top: 20px; /* Space above the description */
+  margin-top: 20px;
 }
-
 .event-description h2 {
-  font-size: 1.5em; /* Larger font for the description heading */
-  margin-bottom: 10px; /* Space below the heading */
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
-
 .event-actions {
-  margin-top: 20px; /* Space above the actions section */
-  text-align: center; /* Center align the actions */
+  margin-top: 20px;
+  text-align: center;
 }
-
 .buy-tickets-link {
-  display: inline-block; /* Make the link a block element */
-  padding: 10px 20px; /* Padding for the button */
-  background-color: #007bff; /* Bootstrap primary color */
-  color: white; /* White text */
-  text-decoration: none; /* Remove underline */
-  border-radius: 5px; /* Rounded corners for the button */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
-
 .buy-tickets-link:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+  background-color: #0056b3;
 }
-
-/* Responsive Styles */
 @media (max-width: 600px) {
   .event-details {
-    padding: 10px; /* Reduce padding on smaller screens */
+    padding: 10px;
   }
-
   .event-organizer,
   .event-venue,
   .event-date,
   .event-time {
-    font-size: 1em; /* Smaller font size for mobile */
+    font-size: 1em;
   }
-
   .event-description h2 {
-    font-size: 1.2em; /* Smaller heading for mobile */
+    font-size: 1.2em;
   }
-
   .buy-tickets-link {
-    padding: 8px 16px; /* Adjust button padding for mobile */
+    padding: 8px 16px;
   }
 }
-
 @media (max-width: 400px) {
   .event-details {
-    margin: 10px; /* Reduce margin on very small screens */
+    margin: 10px;
   }
-
   .event-organizer,
   .event-venue,
   .event-date,
   .event-time {
-    font-size: 0.9em; /* Even smaller font size for very small screens */
+    font-size: 0.9em;
   }
-
   .event-description h2 {
-    font-size: 1.1em; /* Even smaller heading for very small screens */
+    font-size: 1.1em;
   }
 }
