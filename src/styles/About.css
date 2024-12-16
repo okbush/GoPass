@@ -1,224 +1,182 @@
+/* General Styles */
 .about-us {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
 }
 
+.logo {
+  width: 150px;  /* Adjust width as per your requirement */
+  height: auto;  /* Maintains aspect ratio */
+  margin-bottom: 10px;  /* Reduces space below the logo */
+}
+
+/* Intro Section */
 .intro {
-  background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);
-  color: white;
+  background: rgba(70, 70, 70, 0.336); /* Semi-transparent gray */
+  color: rgb(255, 255, 255);
   text-align: center;
-  padding: 50px 20px;
+  padding: 40px 20px; /* Reduced padding for less space around the content */
   position: relative;
-  overflow: hidden;
+  border: 1px solid #8080808a; /* Subtle border for better contrast */
+  border-radius: 5px; /* Optional rounded edges for a softer look */
+  backdrop-filter: blur(5px); /* Adds a frosted glass effect */
 }
 
 .intro h1 {
-  font-size: 48px;
+  font-size: 2.5rem;
   margin-bottom: 20px;
-  position: relative;
-  z-index: 1;
+  margin-top: 0;  /* Removes any default margin on the header */
 }
 
 .intro h1 span {
-  color: #ff4081;
+  color: #8718a0;
 }
 
 .intro p {
-  font-size: 18px;
+  font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
 }
 
-.intro::before,
-.intro::after {
-  content: '';
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  z-index: 0;
-}
-
-.intro::before {
-  top: -50px;
-  right: -50px;
-}
-
-.intro::after {
-  bottom: -50px;
-  left: -50px;
-}
-
-.services {
-  background-color: #f4f4f4;
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.services h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-.services p {
-  font-size: 18px;
-  max-width: 800px;
-  margin: 0 auto 40px;
-}
-
-.services-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.service-item {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  flex: 1;
-  min-width: 200px;
-  max-width: 250px;
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.service-item:hover {
-  transform: scale(1.05);
-}
-
-.service-item h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.service-item p {
-  font-size: 16px;
-}
-
+/* Contact Section */
 .contact {
-  background-color: #ffccbc;
-  padding: 50px 20px;
+  background-color: #f4f4f9f6; /* Light, soft background */
+  padding: 20px 40px;
   text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Space between the sections */
 }
 
 .contact h2 {
-  font-size: 36px;
+  font-size: 2.5rem;
+  color: #333;
   margin-bottom: 20px;
 }
 
 .contact p {
-  font-size: 18px;
+  font-size: 1.1rem;
+  color: #666;
   max-width: 800px;
   margin: 0 auto 40px;
+  line-height: 1.6;
 }
 
+/* Contact Form */
 .contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 600px;
+  max-width: 500px;  /* Reduced the width of the contact form */
   margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form input,
 .contact-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  width: 100%;  /* Ensure inputs take full width */
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fafafa;
+  box-sizing: border-box;  /* Ensures padding doesn't affect width */
+  transition: all 0.3s ease;
 }
 
-.contact-form textarea {
-  resize: vertical;
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #8718a0; /* Accent color */
+  background-color: #fff;
 }
 
 .contact-form button {
-  padding: 10px 20px;
-  background-color: #6a1b9a;
+  padding: 12px 30px;
+  font-size: 1.1rem;
   color: white;
+  background-color: #8718a0; /* Accent color */
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .contact-form button:hover {
-  background-color: #4a148c;
+  background-color: #6c1372; /* Darker shade on hover */
 }
 
+/* Contact Info Styling */
 .contact-info {
   margin-top: 40px;
-  display: flex; /* Use flexbox */
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items horizontally */
-  text-align: center; /* Center text */
+  color: #333;
+  font-size: 1.1rem;
 }
 
 .contact-info p {
-  font-size: 16px;
-  margin: 5px 0;
-  /* Maintain vertical spacing */
-  display: inline-block;
-  /* Ensure paragraphs are treated as inline blocks for centering */
+  margin-bottom: 15px;
+  font-weight: 500;
 }
 
+.contact-info p strong {
+  color: #8718a0; /* Accent color for labels */
+}
+
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-  .intro h1 {
-    font-size: 36px;
-  }
-
-  .intro p {
-    font-size: 16px;
-  }
-
-  .services h2,
-  .contact h2 {
-    font-size: 28px;
-  }
-
-  .services p,
-  .contact p {
-    font-size: 16px;
-  }
-
-  .service-item {
-    min-width: 150px;
-    max-width: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .intro h1 {
-    font-size: 28px;
-  }
-
-  .intro p {
-    font-size: 14px;
-  }
-
-  .services h2,
-  .contact h2 {
-    font-size: 24px;
-  }
-
-  .services p,
-  .contact p {
-    font-size: 14px;
+  .contact-form {
+    max-width: 100%;  /* Make the form take up 100% width */
+    padding: 15px;  /* Adjust padding */
   }
 
   .contact-form input,
   .contact-form textarea {
-    font-size: 14px;
+    padding: 12px;  /* Slightly smaller padding on mobile */
+    font-size: 1rem;  /* Adjust font size for mobile */
+  }
+
+  .contact-form button {
+    font-size: 1rem;  /* Slightly smaller button */
+    padding: 12px 25px;
+  }
+
+  .contact h2 {
+    font-size: 2rem;  /* Smaller heading on mobile */
+  }
+
+  .contact p {
+    font-size: 1rem;
   }
 
   .contact-info p {
-    font-size: 14px;
+    font-size: 0.9rem; /* Even smaller text on very small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;  /* Reduce padding for even smaller screens */
+    font-size: 0.9rem;  /* Smaller font size */
+  }
+
+  .contact-form button {
+    padding: 10px 20px;
+    font-size: 0.9rem;  /* Smaller button */
+  }
+
+  .contact h2 {
+    font-size: 1.8rem; /* Smaller heading for tiny screens */
+  }
+
+  .contact-info p {
+    font-size: 0.85rem; /* Reduce font size for contact info */
+  }
+
+  .logo {
+    width: 100px;  /* Make logo smaller on mobile */
   }
 }
