@@ -6,9 +6,13 @@ const api = axios.create({
 
 // Fetch events from API
 export const fetchEvents = async () => {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/event`);
-    return response.data.data; // Return only the data array
+    try {
+        const response = await api.get('/api/event'); // Use the created instance
+        return response.data.data; // Return only the data array
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        return []; // Return an empty array on error
+    }
 };
-
 
 export default api;

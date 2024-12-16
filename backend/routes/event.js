@@ -23,9 +23,9 @@ module.exports = (db) => {
     });
 
     // Fetch event by ID
-router.get('/:id', async (req, res) => {
-    const { id } = req.params;
-    const query = `
+    router.get('/:id', async (req, res) => {
+        const { id } = req.params;
+        const query = `
         SELECT 
             e.EventID AS id, 
             e.EventName AS title, 
@@ -40,17 +40,17 @@ router.get('/:id', async (req, res) => {
         JOIN organizer o ON e.OrganizerID = o.OrganizerID
         WHERE e.EventID = ?
     `;
-    try {
-        const [results] = await db.promise().query(query, [id]);
-        if (results.length === 0) {
-            return res.status(404).json({ error: 'Event not found' });
+        try {
+            const [results] = await db.promise().query(query, [id]);
+            if (results.length === 0) {
+                return res.status(404).json({ error: 'Event not found' });
+            }
+            res.json({ status: 'success', data: results[0] });
+        } catch (err) {
+            console.error('Error fetching event:', err);
+            res.status(500).json({ error: 'Database query failed', details: err.message });
         }
-        res.json({ status: 'success', data: results[0] });
-    } catch (err) {
-        console.error('Error fetching event:', err);
-        res.status(500).json({ error: 'Database query failed', details: err.message });
-    }
-});
+    });
 
     return router;
 };
