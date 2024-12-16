@@ -12,7 +12,7 @@
 
 /* Logo Styling */
 .navbar-logo {
-  font-size: 24px; /* Adjust the font size of the logo text */
+  font-size: 24px;
   font-weight: bold;
   flex: 1; /* Allow the logo to take up space */
   text-align: center; /* Center the logo */
@@ -21,13 +21,6 @@
 .navbar-logo a {
   text-decoration: none;
   color: white; /* Change logo color to white */
-}
-
-/* Image Logo Styling */
-.logo {
-  width: 55px !important;  /* Adjust the width to match the font-size of the text */
-  height: auto;  /* Maintains aspect ratio */
-  vertical-align: middle; /* Align image with text */
 }
 
 /* Links Styling */
@@ -100,39 +93,39 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
   }
 
   .navbar-logo {
-    margin-bottom: 15px;
+      margin-bottom: 15px;
   }
 
   .navbar-links {
-    display: none; /* Hide links by default on mobile */
-    width: 100%; /* Full width for mobile */
+      display: none; /* Hide links by default on mobile */
+      width: 100%; /* Full width for mobile */
   }
 
   .navbar-links.open {
-    display: flex; /* Show links when the menu is open */
-    flex-direction: column; /* Stack links vertically */
-    align-items: center; /* Center align links */
-    gap: 15px; /* Space between links */
+      display: flex; /* Show links when the menu is open */
+      flex-direction: column; /* Stack links vertically */
+      align-items: center; /* Center align links */
+      gap: 15px; /* Space between links */
   }
 
   .navbar-links ul {
-    flex-direction: column; /* Stack links vertically */
-    gap: 15px; /* Space between links */
+      flex-direction: column; /* Stack links vertically */
+      gap: 15px; /* Space between links */
   }
 
   .navbar-login {
-    margin-top: 15px;
-    text-align: center; /* Center align login button */
+      margin-top: 15px;
+      text-align: center; /* Center align login button */
   }
 
   .navbar-toggle {
-    display: block; /* Show the toggle button on mobile */
-    margin-top: 15px; /* Space above the toggle button */
+      display: block; /* Show the toggle button on mobile */
+      margin-top: 15px; /* Space above the toggle button */
   }
 }

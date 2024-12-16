@@ -47,7 +47,7 @@ open cmd
 To activate the backend:
 ```
 cd C:\{Location}\backend
-node index.js
+node Node.js
 ```
 
 open another window of cmd

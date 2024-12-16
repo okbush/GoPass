@@ -11,17 +11,13 @@ const Dashboard = () => {
     // Fetch events from API
     useEffect(() => {
         const loadEvents = async () => {
-            try {
-                const events = await fetchEvents();
-                console.log('Fetched events:', events); // Log the fetched data
-                if (Array.isArray(events)) {
-                    setEventList(events); // Save all events
-                    setFilteredEvents(events); // Initially show all events
-                } else {
-                    console.error('Events data is not an array:', events);
-                }
-            } catch (error) {
-                console.error('Failed to load events:', error);
+            const events = await fetchEvents(); // Fetch events
+            console.log('Fetched events:', events); // Log the fetched data
+            if (Array.isArray(events)) {
+                setEventList(events); // Save all events
+                setFilteredEvents(events); // Initially show all events
+            } else {
+                console.error('Events data is not an array:', events);
             }
         };
 

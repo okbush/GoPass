@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start:all": "concurrently \"node ./backend/index.js\" \"npm run dev\""
+    "start:all": "concurrently \"node ./backend/Node.js\" \"npm run dev\""
   },
   "dependencies": {
     "axios": "^1.7.9",
