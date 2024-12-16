@@ -25,6 +25,7 @@ cd backend
 npm init -y
 npm install express
 npm install express mysql2 cors
+npm install dotenv
 ```
 ## After the Downloads
 unzip the folder, copy the content in the GoPass folder, there should be a promt to replace files, replace them.
